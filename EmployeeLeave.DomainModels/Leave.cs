@@ -13,6 +13,7 @@ namespace EmployeeLeave.DomainModels
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LeaveId { get; set; }
         public int EmpId { get; set; }
+        public string EmpName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string status { get; set; }

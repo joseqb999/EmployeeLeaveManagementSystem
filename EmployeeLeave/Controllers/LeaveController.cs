@@ -38,6 +38,7 @@ namespace EmployeeLeave.Controllers
         public ActionResult LeaveRequest(ApplyLeaveViewModel leaveReq)
         {
             leaveReq.EmpId = Convert.ToInt32(Session["CurrentEmpId"]);
+            leaveReq.EmpName = Convert.ToString(Session["CurrentEmployeename"]);
             leaveReq.status = "Pending";
 
             this.ls.ApplyLeave(leaveReq);

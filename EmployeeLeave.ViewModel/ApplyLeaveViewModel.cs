@@ -12,6 +12,7 @@ namespace EmployeeLeave.ViewModels
     {
         public int LeaveId { get; set; }
         public int EmpId { get; set; }
+        public string EmpName { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }
