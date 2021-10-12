@@ -1,0 +1,23 @@
+﻿@model EmployeeLeave.ViewModels.EmployeeViewModel
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+    </tr>
+    <tr>
+        <td class="text-dark">
+            <a href="/account/viewprofile/@Model.EmpId"> @Model.EmpName </a>
+        </td>
+
+        <td>
+            @Model.Mobile
+
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    $('#buttonid').click(function (){
+        document.location = '@Url.Action("ViewProfile", "account")'
+    })
+</script>

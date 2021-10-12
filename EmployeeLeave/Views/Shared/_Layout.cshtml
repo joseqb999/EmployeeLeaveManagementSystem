@@ -1,0 +1,116 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - EmployeeLeaveManagement</title>
+    @Scripts.Render("~/Scripts/bootstrap")
+    @Styles.Render("~/Styles/bootstrap")
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-sm text-light navbar-light">
+            <a class="navbar-brand" href="#">EmployeeLeaveManagement</a>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavBar">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home/index">Home</a>
+                    </li>
+
+                    @if (Session["CurrentEmployeeEmail"] == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/account/login">Login</a>
+                        </li>
+                    }
+
+                    @if (Session["CurrentEmployeeEmail"] != null)
+                    {
+                        if (Session["CurrentEmployeeRoleId"] is 1)
+                        {
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Leaves Management
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="/leave/leaverequest">Apply Leave</a></li>
+                                    <li><a class="dropdown-item" href="/leave/leavestatus">View Leave status</a></li>
+                                </ul>
+                            </div>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/account/myprofile">My Profile</a>
+                            </li>
+
+
+                        }
+                        if (Session["CurrentEmployeeRoleId"] is 2)
+                        {
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Leaves Applications
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="/leave/leaveupdation">Update Leave Requests</a></li>
+                                </ul>
+                            </div>
+                        }
+                        if (Session["CurrentEmployeeRoleId"] is 3)
+                        {
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Manage Employees
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="/account/addemployee">Add Employee</a></li>
+                                    <li><a class="dropdown-item" href="/account/employees">View Employee</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <form class="form-inline" action="/account/search" method="post">
+
+                                    <select name="RoleId">
+                                        <option value="1">Employee</option>
+                                        <option value="2">Manager</option>
+                                        <option value="3">HR</option>
+                                    </select>
+
+
+
+                                    <input type="search" class="" style="width:200px" placeholder="Search" name="str">
+
+                                    <button class="btn btn-success">Search</button>
+
+                                </form>
+                            </div>
+                        }
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                @Session["CurrentEmployeename"]
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/account/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="/account/editprofile">Edit profile</a></li>
+                                <li><a class="dropdown-item" href="/account/editpassword">Edit password</a></li>
+                            </ul>
+                        </div>
+
+                    }
+                </ul>
+
+            </div>
+        </nav>
+        @RenderBody()
+    </div>
+</body>
+
+</html>
+
+

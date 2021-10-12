@@ -1,0 +1,56 @@
+﻿@model List<EmployeeLeave.ViewModels.LeaveViewModel>
+
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Your Leave Status</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>From Date</th>
+                                <th>To Date</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.StartDate.ToString("dd-MMMM-yyyy")</td>
+                                    <td>@item.EndDate.ToString("dd-MMMM-yyyy")</td>
+                                    <td>@item.Description</td>
+
+                                    @if (item.status == "Pending")
+                                    {
+                                        <td><a href="#" class="btn btn-warning">@item.status</a></td>
+}
+                                    @if (item.status == "Accepted")
+                                    {
+                                        <td><a href="#" class="btn btn-success">@item.status</a></td>
+}
+                                    @if (item.status == "Rejected")
+                                    {
+                                        <td><a href="#" class="btn btn-danger">@item.status</a></td>
+}
+
+                                </tr>
+}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

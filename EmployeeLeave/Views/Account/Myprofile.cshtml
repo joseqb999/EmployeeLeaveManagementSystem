@@ -1,0 +1,43 @@
+﻿@model EmployeeLeave.ViewModels.EmployeeViewModel
+@{ ViewBag.Title = "My Profile"; }
+
+<div class="login-box" styles="width:100px">
+
+    <h4>My Profile - @Session["CurrentEmployeeName"]</h4>
+    <br />
+    <br />
+    <br />
+    <tr>
+        <td> Employee ID : @Session["CurrentEmpId"]</td>
+    </tr>
+    <br />
+    <br />
+    <tr>
+        <td> Employee Name : @Session["CurrentEmployeeName"]</td>
+    </tr>
+    <br />
+    <br />
+    <tr>
+        <td> Mobile : @Session["CurrentEmployeeMobile"]</td>
+    </tr>
+    <br />
+    <br />
+    <tr>
+        <td> Email ID : @Session["CurrentEmployeeEmail"]</td>
+    </tr>
+    <br />
+    <br />
+    <tr>
+        <td> RoleId : @Session["CurrentEmployeeRoleId"]</td>
+    </tr>
+    <br />
+    <br />
+    <tr>
+        <td> PMId : @Session["CurrentEmployeePMId"]</td>
+    </tr>
+    <br />
+</div>
+
+<script>
+    $("a[href='/account/myprofile']").attr("id", "active");
+</script>

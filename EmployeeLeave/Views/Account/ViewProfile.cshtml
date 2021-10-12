@@ -1,0 +1,32 @@
+﻿@model EmployeeLeave.ViewModels.EmployeeViewModel
+
+<h2> Employee Details </h2>
+<br />
+
+<div class="login-box" style="width:600px">
+    <h4>My Profile - @Model.EmpName</h4>
+
+    <tr>
+        <td> Employee ID : @Model.EmpId</td>
+    </tr>
+    <br />
+    <tr>
+        <td> First Name : @Model.EmpName</td>
+    </tr>
+    <br />
+
+    <tr>
+        <td> Mobile : @Model.Mobile</td>
+    </tr>
+    <br />
+
+    <tr>
+        <td>Email ID :  @Model.Email</td>
+
+    </tr>
+</div>
+
+
+<script>
+    $("a[href='/viewprofile']").attr("id", "active");
+</script>
