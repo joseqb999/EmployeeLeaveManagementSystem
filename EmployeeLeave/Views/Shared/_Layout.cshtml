@@ -71,6 +71,18 @@
                                     <li><a class="dropdown-item" href="/account/employees">View Employee</a></li>
                                 </ul>
                             </div>
+                            if (Session["CurrentEmployeeIsSpecialPermission"] is true)
+                            {
+
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Leaves Applications
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="/leave/leaveupdation">Update Leave Requests</a></li>
+                                    </ul>
+                                </div>
+                            }
 
                             <div>
                                 <form class="form-inline" action="/account/search" method="post">

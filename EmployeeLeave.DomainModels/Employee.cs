@@ -20,6 +20,7 @@ namespace EmployeeLeave.DomainModels
         public int PMId { get; set; }
         public bool IsHR { get; set; }
         public bool IsManager { get; set; }
+        public bool IsSpecialPermission { get; set; }
 
 
         [ForeignKey("RoleId")]

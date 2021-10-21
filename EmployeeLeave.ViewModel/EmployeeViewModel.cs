@@ -18,6 +18,7 @@ namespace EmployeeLeave.ViewModels
         public int PMId { get; set; }
         public bool IsHR { get; set; }
         public bool IsManager { get; set; }
+        public bool IsSpecialPermission { get; set; }
 
     }
 }

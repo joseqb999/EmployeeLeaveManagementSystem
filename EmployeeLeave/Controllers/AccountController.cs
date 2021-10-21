@@ -44,6 +44,7 @@ namespace EmployeeLeave.Controllers
                     Session["CurrentEmployeePMId"] = evm.PMId;
                     Session["CurrentIsHR"] = evm.IsHR;
                     Session["CurrentIsManager"] = evm.IsManager;
+                    Session["CurrentEmployeeIsSpecialPermission"] = evm.IsSpecialPermission;
 
                     if (evm.IsHR || evm.IsManager)
                     {
